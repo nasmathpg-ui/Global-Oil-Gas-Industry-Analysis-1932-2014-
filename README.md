@@ -1,36 +1,51 @@
 # Global Oil & Gas Industry Analysis (1932–2014)
 
-## Project Overview
+## Project overview
+A country-level historical analysis of oil and natural gas production, prices, economic values, exports, net exports and population indicators from 1932 to 2014.
 
-This project focuses on analyzing the global oil and gas industry using historical data from 1932 to 2014. It explores historical oil and natural gas production, petroleum prices, exports, net exports, and country-wise energy performance.
+## Repository contents
+- `Oil and Gas 1932-2014.csv` – original source dataset (add this file to the repository).
+- `Oil_and_Gas_1932_2014_Cleaned.csv` – cleaned dataset generated from the uploaded source.
+- `Global_Oil_Gas_Analysis_1932_2014.ipynb` – documented notebook covering cleaning, EDA, statistical analysis, visualizations, feature engineering and recommendations.
+- `SRS_Global_Oil_Gas_Analysis.docx` – Software Requirements Specification.
+- `README.md` – project documentation.
 
-The objective is to identify long-term energy trends, understand changes in global production and trade, compare country-level performance, and explore the relationship between energy production and international markets.
+## Dataset profile
+The uploaded source file contains 15,521 rows and 41 columns before cleaning. It covers country-year observations and the period 1932–2014. The analysis is country-level, not oil-field-level.
 
-## Key Areas of Analysis
+## Analysis workflow
+1. Data inspection and quality profiling
+2. Duplicate removal and text standardization
+3. Data type and year-range validation
+4. Missing-value analysis (without treating unknown values as zero)
+5. IQR-based outlier flagging
+6. EDA and univariate analysis
+7. Bivariate and multivariate analysis
+8. Descriptive statistics and correlation
+9. Time-series and comparative visualizations
+10. Feature engineering, insights and recommendations
 
-- Historical global oil and natural gas production trends.
-- Crude oil price fluctuations over time.
-- Country-wise oil and gas production comparison.
-- Petroleum exports and net export performance.
-- Global energy market trends and patterns.
-- Identification of major oil-producing and exporting countries.
-- Historical changes in the global energy industry.
+## How to run
+1. Clone/download this repository.
+2. Install dependencies:
+   ```bash
+   pip install pandas numpy matplotlib seaborn jupyter
+   ```
+3. Place the original CSV in the same directory as the notebook (or run the notebook using the cleaned CSV).
+4. Launch:
+   ```bash
+   jupyter notebook Global_Oil_Gas_Analysis_1932_2014.ipynb
+   ```
 
-## Dataset Source
+## Data handling notes
+- Missing values are retained and reported; they are not blindly filled with zero.
+- Exact duplicate rows are removed.
+- Numeric types and year range are validated.
+- Outliers are flagged for investigation, not automatically removed, because extreme country production values may be legitimate.
+- All supplied columns are retained because they relate to the stated analysis scope.
 
-Kaggle: https://www.kaggle.com/datasets/raspberrypie/oil-and-gas
+## Important scope limitation
+This is a country-level historical dataset. It must not be described as Abu Dhabi field-level operational data. Confirm original variable definitions and units from the dataset provider documentation before interpreting or publishing individual measures.
 
-## Tools and Technologies
-
-- Python
-- Pandas and NumPy
-- Matplotlib and Seaborn
-- Jupyter Notebook
-- Exploratory Data Analysis (EDA)
-- Data Visualization
-
-## Project Objective
-
-To transform historical oil and gas data into meaningful insights through data analysis and visualization, supporting a better understanding of global energy production, pricing, and international trade patterns.
-
-**Note:** This project analyzes global country-level energy data and does not represent Abu Dhabi-specific oilfield operational data.
+## Expected deliverables
+Dataset, SRS document, complete documented Jupyter Notebook and this README.
